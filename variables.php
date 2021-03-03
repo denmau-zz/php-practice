@@ -10,20 +10,28 @@
 <body>
 
 <?php
+    $Firstname = "Dennis";
+    $Secondname = "Kamau";
 
-$Firstname = "Dennis";
-$Secondname = "Kamau";
+    $num1 = 30;
+    $num2 = 74;
 
-$num1 = 30;
-$num2 = 74;
+    echo $Firstname;
+    echo "<br>";
+    echo $Secondname;
+    echo "<br>";
+    echo  $num1;
+    echo "<br>";
+    echo $num2;
+    echo "<br>";
+    echo "Addition of $num1 & $num2 yields " . ($num1 + $num2);
+    echo "<br>";
+    echo "Multiplication of $num1 & $num2 yields " . ($num1 * $num2);
+    echo "<br>";
+    echo "Division of $num1 & $num2 yields " . ($num1 / $num2);
+    echo "<br>";
+    echo "Subtraction of $num1 & $num2 yields " . ($num1 - $num2);
 
-echo $Firstname;
-echo "<br>";
-echo $Secondname;
-echo "<br>";
-echo  $num1;
-echo "<br>";
-echo $num2;
 
 ?>
 
