@@ -20,6 +20,8 @@
     echo "<br>";
     echo $Secondname;
     echo "<br>";
+    echo "Fullname: $Firstname $Secondname";
+    echo "<br>";
     echo  $num1;
     echo "<br>";
     echo $num2;
