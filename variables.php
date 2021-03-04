@@ -33,7 +33,8 @@
     echo "Division of $num1 & $num2 yields " . ($num1 / $num2);
     echo "<br>";
     echo "Subtraction of $num1 & $num2 yields " . ($num1 - $num2);
-
+    echo "<br>";
+    echo "The remainder of Dividing $num2 by $num1 is " . ($num2 % $num1);
 
 ?>
 
