@@ -10,31 +10,58 @@
 <body>
 
 <?php
-    $Firstname = "Dennis";
-    $Secondname = "Kamau";
+    $fistname = "Emobilis";
+    $secondname = "practice";
 
-    $num1 = 30;
-    $num2 = 74;
+    echo "Hi, my name is ".$fistname." ".$secondname;
 
-    echo $Firstname;
+    $yearofbirth = 2000;
+    $currentyear = 2021;
+    $age = $currentyear - $yearofbirth;
+
     echo "<br>";
-    echo $Secondname;
+
+    echo "and am ".$currentyear - $yearofbirth." years old.";
     echo "<br>";
-    echo "Fullname: $Firstname $Secondname";
+    echo "age before iteration " . $age;
+
+    // age-- -> age = age - 1
     echo "<br>";
-    echo  $num1;
     echo "<br>";
-    echo $num2;
     echo "<br>";
-    echo "Addition of $num1 & $num2 yields " . ($num1 + $num2);
     echo "<br>";
-    echo "Multiplication of $num1 & $num2 yields " . ($num1 * $num2);
     echo "<br>";
-    echo "Division of $num1 & $num2 yields " . ($num1 / $num2);
     echo "<br>";
-    echo "Subtraction of $num1 & $num2 yields " . ($num1 - $num2);
     echo "<br>";
-    echo "The remainder of Dividing $num2 by $num1 is " . ($num2 % $num1);
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+
+    //ag = 21
+
+    echo "prefix age " . ++$age; // add 1 to age and then print
+    echo "<br>";
+    echo "post fix age " . $age++; // adding 1 after printing
+    echo "<br>";
+    echo "value ya age" . ($age);
+    echo "<br>";
+    echo "value age " . $age;
+    // age--
+
+    // ++$age
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 

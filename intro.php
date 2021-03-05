@@ -19,6 +19,8 @@ echo "<br>";
 echo "This is my first PHP site!";
 echo "<br>";
 
+phpinfo();
+
 
 ?>
 
