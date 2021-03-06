@@ -78,7 +78,9 @@ if (isset($_POST['submit'])) {
 >
 
     <label for="username">Username</label>
-    <input type="text" name="username">
+    <input type="text" name="username" value="<?php
+    echo htmlspecialchars($username, ENT_QUOTES);
+    ?>">
     <br/>
 
     <label for="password">Password</label>
@@ -86,25 +88,67 @@ if (isset($_POST['submit'])) {
     <br/>
 
     <label for="gender">Gender</label>
-    <input type="radio" name="gender" value="m">Male
-    <input type="radio" name="gender" value="f">Female
-    <input type="radio" name="gender" value="o">Other
+    <input type="radio" name="gender" value="m"<?php
+    if ($gender === 'm') {
+        echo ' checked';
+    }
+    ?>>Male
+    <input type="radio" name="gender" value="f"<?php
+    if ($gender === 'f') {
+        echo ' checked';
+    }
+    ?>>Female
+    <input type="radio" name="gender" value="o"<?php
+    if ($gender === 'o') {
+        echo ' checked';
+    }
+    ?>>Other
     <br/>
 
     <label for="fav_color">Favourite Color</label>
     <select name="fav_color">
         <option value="">Select one ...</option>
-        <option value="#f00">Red</option>
-        <option value="#0f0">Green</option>
-        <option value="#00f">Blue</option>
+        <option value="#f00"<?php
+        if ($fav_color === '#f00') {
+            echo ' selected';
+        }
+        ?>>Red
+        </option>
+        <option value="#0f0"<?php
+        if ($fav_color === '#0f0') {
+            echo ' selected';
+        }
+        ?>>Green
+        </option>
+        <option value="#00f"<?php
+        if ($fav_color === '#00f') {
+            echo ' selected';
+        }
+        ?>>Blue
+        </option>
     </select>
     <br/>
 
     <label for="languages[]">Language(s) Spoken</label>
     <select name="languages[]" multiple size="3">
-        <option value="en">English</option>
-        <option value="fr">French</option>
-        <option value="it">Italian</option>
+        <option value="en"<?php
+        if (in_array('en', $languages)) {
+            echo ' selected';
+        }
+        ?>>English
+        </option>
+        <option value="fr"<?php
+        if (in_array('fr', $languages)) {
+            echo ' selected';
+        }
+        ?>>French
+        </option>
+        <option value="it"<?php
+        if (in_array('it', $languages)) {
+            echo ' selected';
+        }
+        ?>>Italian
+        </option>
     </select>
     <br/>
 
@@ -115,10 +159,18 @@ if (isset($_POST['submit'])) {
     <br/>
 
     <label for="comments">Comments</label>
-    <textarea name="comments"></textarea>
+    <textarea name="comments">
+        <?php
+        echo htmlspecialchars($comments, ENT_QUOTES);
+        ?>
+    </textarea>
     <br/>
 
-    <input type="checkbox" name="tc" value="ok" checked>
+    <input type="checkbox" name="tc" value="ok"<?php
+    if ($tc === 'ok') {
+        echo ' checked';
+    }
+    ?>>
     I accept the terms &amp; Conditions
     <br/>
 
