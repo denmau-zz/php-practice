@@ -8,47 +8,64 @@ $comments = '';
 $tc = '';
 
 if (isset($_POST['submit'])) {
-    echo "Hey there, here is what we got from you:<br>";
+    $ok = true;
 
     // Store Form Data into corresponding variables
-    if (isset($_POST['username'])) {
+    if (!isset($_POST['username']) || $_POST['username'] === '') {
+        $ok = false;
+    } else {
         $username = $_POST['username'];
     }
-    if (isset($_POST['password'])) {
+    if (!isset($_POST['password']) || $_POST['password'] === '') {
+        $ok = false;
+    } else {
         $password = $_POST['password'];
     }
-    if (isset($_POST['gender'])) {
+    if (!isset($_POST['gender']) || $_POST['gender'] === '') {
+        $ok = false;
+    } else {
         $gender = $_POST['gender'];
     }
-    if (isset($_POST['fav_color'])) {
+    if (!isset($_POST['fav_color']) || $_POST['fav_color'] === '') {
+        $ok = false;
+    } else {
         $fav_color = $_POST['fav_color'];
     }
-    if (isset($_POST['languages'])) {
+    if (!isset($_POST['languages']) || count($_POST['languages']) === 0 || !is_array($_POST['languages'])) {
+        $ok = false;
+    } else {
         $languages = $_POST['languages'];
     }
-    if (isset($_POST['comments'])) {
+    if (!isset($_POST['comments'])) {
+        $ok = false;
+    } else {
         $comments = $_POST['comments'];
     }
-    if (isset($_POST['tc'])) {
+    if (!isset($_POST['tc'])) {
+        $ok = false;
+    } else {
         $tc = $_POST['tc'];
     }
 
 // Display From Data
-    printf('Username : %s <br/>
+    if ($ok) {
+        printf('Hey there, here is what we got from you: <br/>
+    Username : %s <br/>
     Password: %s <br/>
     Gender: %s <br/>
     Favourite Color: %s <br/>
     Languages: %s <br/>
     Comments: %s <br/>
     Terms &amp; Conditions: %s <br/>',
-        htmlspecialchars($username, ENT_QUOTES),
-        htmlspecialchars($password, ENT_QUOTES),
-        htmlspecialchars($gender, ENT_QUOTES),
-        htmlspecialchars($fav_color, ENT_QUOTES),
-        htmlspecialchars(implode(' ', $languages), ENT_QUOTES),
-        htmlspecialchars($comments, ENT_QUOTES),
-        htmlspecialchars($tc, ENT_QUOTES)
-    );
+            htmlspecialchars($username, ENT_QUOTES),
+            htmlspecialchars($password, ENT_QUOTES),
+            htmlspecialchars($gender, ENT_QUOTES),
+            htmlspecialchars($fav_color, ENT_QUOTES),
+            htmlspecialchars(implode(' ', $languages), ENT_QUOTES),
+            htmlspecialchars($comments, ENT_QUOTES),
+            htmlspecialchars($tc, ENT_QUOTES)
+        );
+    }
 }
 ?>
 
