@@ -5,6 +5,20 @@ $gender = '';
 $fav_color = '';
 
 if (isset($_POST['submit'])) {
+// pass data from form into variables
+    if (!isset($_POST['username']) || $_POST['username'] === '') {
+        $username = $_POST['username'];
+    }
+    if (!isset($_POST['password']) || $_POST['password'] === '') {
+        $password = $_POST['password'];
+    }
+    if (!isset($_POST['gender']) || $_POST['gender'] === '') {
+        $gender = $_POST['gender'];
+    }
+    if (!isset($_POST['fav_color']) || $_POST['fav_color'] === '') {
+        $fav_color = $_POST['fav_color'];
+    }
+
 // Display From Data
     printf('Hey there, here is what we got from you: <br/>
     Username : %s <br/>
@@ -17,31 +31,35 @@ if (isset($_POST['submit'])) {
         htmlspecialchars($gender, ENT_QUOTES),
         htmlspecialchars($fav_color, ENT_QUOTES)
     );
-}
 
-echo "<br />";
-echo "Saving this data into database ...";
+
+    echo "<br />";
+    echo "Saving this data into database ...";
 
 // Connect to Database
 // using experimental username (super insecure)
-$db = new mysqli(
-    'localhost',
-    'denmau',
-    'denmau123',
-    'php'
-);
+    $db = new mysqli(
+        'localhost',
+        'denmau',
+        'denmau123',
+        'php'
+    );
 
-$sql = sprintf("INSERT INTO users (name, gender, color) VALUES (%s, %s ,%s)",
-    // escaping user input
-    $db->real_escape_string($username),
-    $db->real_escape_string($gender),
-    $db->real_escape_string($fav_color)
-);
+    $sql = sprintf("INSERT INTO 'users' ('name', 'gender', 'color') VALUES (%s, %s ,%s)",
+        // escaping user input
+        $db->real_escape_string($username),
+//        $username,
+        $db->real_escape_string($gender),
+//        $gender,
+        $db->real_escape_string($fav_color)
+//        $fav_color
+    );
 // send query to database
-$db->query($sql);
-echo "<p>User Added.</p>";
+    $db->query($sql);
+    echo "<p>User Added.</p>";
 // close Database
-$db->close();
+    $db->close();
+}
 ?>
 
 <h2>Registration Form</h2>

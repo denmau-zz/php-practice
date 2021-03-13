@@ -65,6 +65,33 @@ if (isset($_POST['submit'])) {
             htmlspecialchars($comments, ENT_QUOTES),
             htmlspecialchars($tc, ENT_QUOTES)
         );
+
+        echo "<br />";
+        echo "Saving this data into php database ...";
+
+// Connect to Database
+// using experimental username (super insecure)
+        $db = new mysqli(
+            'localhost',
+            'root',
+            '',
+            'php'
+        );
+
+        $sql = sprintf("INSERT INTO users (name, gender, color) VALUES (%s, %s ,%s)",
+            // escaping user input
+            $db->real_escape_string($username),
+//        $username,
+            $db->real_escape_string($gender),
+//        $gender,
+            $db->real_escape_string($fav_color)
+//        $fav_color
+        );
+// send query to database
+        $db->query($sql);
+        echo "<p>User Added.</p>";
+// close Database
+        $db->close();
     }
 }
 ?>
