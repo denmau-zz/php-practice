@@ -42,9 +42,9 @@
 
     echo "prefix age " . ++$age; // add 1 to age and then print
     echo "<br>";
-    echo "post fix age " . $age++; // adding 1 after printing
+    echo "post fix age " . $age++; // print then add 1 to age
     echo "<br>";
-    echo "value ya age" . ($age);
+    echo "value of age" . ($age);
     echo "<br>";
     echo "value age " . $age;
     // age--
